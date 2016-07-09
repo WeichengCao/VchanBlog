@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask.ext.login import UserMixin
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from vchan_blog import db
 from defines import ROLES

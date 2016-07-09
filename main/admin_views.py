@@ -3,7 +3,7 @@
 from defines import *
 from flask import render_template, g, request, abort, url_for, flash, redirect
 from flask.views import MethodView
-from flask.ext.login import login_required, current_user
+from flask_login import login_required, current_user
 from account.models import CUser
 from account.permissions import writer_permission, admin_permission, editor_permission, reader_permission
 

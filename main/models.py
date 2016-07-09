@@ -2,7 +2,7 @@
 
 from defines import *
 from flask import url_for
-from flask.ext.mongoengine import MongoEngine
+from flask_mongoengine import MongoEngine
 from account.models import CUser
 
 import datetime

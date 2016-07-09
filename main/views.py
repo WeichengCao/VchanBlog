@@ -3,7 +3,7 @@
 from defines import *
 from urlparse import urljoin
 from flask import request, render_template, abort, current_app, make_response
-from flask.ext.login import current_user
+from flask_login import current_user
 from werkzeug.contrib.atom import AtomFeed
 from mongoengine.queryset.visitor import Q
 
