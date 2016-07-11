@@ -6,14 +6,16 @@ from defines import *
 
 db = MongoEngine()
 login_manager = LoginManager()
+login_manager.session_protection = 'strong'
+login_manager.login_view = 'accounts.login'
 principal = Principal()
 
 def create_app():
     app = Flask(__name__,
-                template_folder="templates",
-                static_folder="static",
-                )
+                template_folder = DevConfig.TEMPLATE_PATH,
+                static_folder = DevConfig.STATIC_PATH)
     app.config.from_object(DevConfig)
+    DevConfig.init_app(app)
 
     db.init_app(app)
     login_manager.init_app(app)
@@ -31,17 +33,3 @@ def create_app():
 
     return app
 
-
-@login_manager.user_loader
-def load_user(username):
-    import account.models
-    try:
-        user = account.models.CUser.objects.get(username=username)
-    except:
-        user = None
-    return user
-
-
-if __name__ == '__main__':
-    app = create_app()
-    app.run()

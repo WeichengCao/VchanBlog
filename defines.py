@@ -61,6 +61,7 @@ class Config(object):
     BASE_DIR = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
     MONGODB_SETTINGS = {'DB': 'VChanBlog'}
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'fjdljLJDL08_80jflKzcznv*c'
 
     TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates').replace('\\', '/')
     STATIC_PATH = os.path.join(BASE_DIR, 'static').replace('\\', '/')
